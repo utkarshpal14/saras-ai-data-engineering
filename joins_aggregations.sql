@@ -35,3 +35,11 @@ SELECT department,
   FROM employees 
   group by department;
 
+--Exercise 6: Departments with More Than Two Employees
+SELECT department, 
+  COUNT(id) as total_employees
+  FROM employees 
+  group by department
+  having total_employees>2
+  order by total_employees desc;
+
