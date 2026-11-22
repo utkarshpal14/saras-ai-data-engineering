@@ -43,3 +43,12 @@ SELECT department,
   having total_employees>2
   order by total_employees desc;
 
+--Exercise 7: Department Budget and Salary Comparison
+select e.department as department_name, 
+  d.budget as department_budget,
+  SUM(e.salary) as total_salary,
+  d.budget - SUM(e.salary) as diff
+  from employees e
+join departments d on e.department = d.name
+  group by d.name,d.budget;
+
